@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const SignUp = () => {
@@ -11,6 +12,7 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth);
 
+  const navigate = useNavigate();
   const handleEmail = (event) => {
     const email = event.target.value;
     setUserEmail(email);
@@ -25,16 +27,22 @@ const SignUp = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (userPassword !==confirmPassword) {
+    if (userPassword !== confirmPassword) {
       setError("Did not match with the password");
       return;
     }
-    if(userPassword<=6){
-        setError('Password should contain six or more characters ')
+    if (userPassword.length <= 6) {
+      setError("Password should contain six or more characters ");
     }
-    createUserWithEmailAndPassword(userEmail,userPassword)
+    createUserWithEmailAndPassword(userEmail, userPassword);
   };
 
+  if (user) {
+    navigate("/");
+  }
+  const loginpage=()=>{
+      navigate('/login')
+  }
 
   return (
     <div>
@@ -69,8 +77,9 @@ const SignUp = () => {
           <p className="text-danger">{error}</p>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
+          <Form.Check onChange={loginpage} type="checkbox" label="Already have an account" />
         </Form.Group>
+
         <Button variant="primary" type="submit">
           Submit
         </Button>
