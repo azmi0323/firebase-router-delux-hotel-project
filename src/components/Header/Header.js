@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <div className="bg-info py-3">
       <div className="d-flex justify-content-between align-items-center container">
-        <div className="text-danger">
-            <h1>DeluxHoter</h1>
+        <div>
+            <h1 className="text-black fw-bold">Deluxs<span className=" text-danger">Hotel</span></h1>
         </div>
         <div className="Header-option fw-bold fs-4">
           <Link to="/">Home</Link>
