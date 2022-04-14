@@ -15,17 +15,22 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
+    if(user){
+      navigate('/products')
+    }
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
+
+    signInWithEmailAndPassword(email,password)
   };
 
   return (
     <div>
       <h1 className="text-center text-info mt-5 fw-bold">Please Login</h1>
       <div>
-        <Form className="container text-primary w-50 mt-5 border p-4 rounded">
+        <Form onSubmit={handleSubmit} className="container text-primary w-50 mt-5 border p-4 rounded">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" required />
