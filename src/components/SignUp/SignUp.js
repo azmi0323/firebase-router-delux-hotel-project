@@ -53,6 +53,7 @@ const SignUp = () => {
             onBlur={handleEmail}
             type="email"
             placeholder="Enter email"
+            required
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -65,6 +66,7 @@ const SignUp = () => {
             onBlur={handlePassword}
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -73,6 +75,7 @@ const SignUp = () => {
             onBlur={handleConfirmPassword}
             type="password"
             placeholder="Confirm Password"
+            required
           />
           <p className="text-danger">{error}</p>
         </Form.Group>
