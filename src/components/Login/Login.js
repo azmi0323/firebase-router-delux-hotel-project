@@ -12,7 +12,7 @@ const Login = () => {
   const signUppage = () => {
     navigate("/signup");
   };
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user] =
     useSignInWithEmailAndPassword(auth);
 
     if(user){
