@@ -40,53 +40,65 @@ const SignUp = () => {
   if (user) {
     navigate("/");
   }
-  const loginpage=()=>{
-      navigate('/login')
-  }
+  const loginpage = () => {
+    navigate("/login");
+  };
 
   return (
     <div>
-      <Form className="container" onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            onBlur={handleEmail}
-            type="email"
-            placeholder="Enter email"
-            required
-          />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+      <div>
+        <h1 className="text-center text-danger mt-5 fw-bold">Please SignUp</h1>
+      </div>
+      <div>
+        <Form
+          className="container text-primary w-50 mt-5 border p-4 rounded"
+          onSubmit={handleSubmit}
+        >
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              onBlur={handleEmail}
+              type="email"
+              placeholder="Enter email"
+              required
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            onBlur={handlePassword}
-            type="password"
-            placeholder="Password"
-            required
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control
-            onBlur={handleConfirmPassword}
-            type="password"
-            placeholder="Confirm Password"
-            required
-          />
-          <p className="text-danger">{error}</p>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check onChange={loginpage} type="checkbox" label="Already have an account" />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              onBlur={handlePassword}
+              type="password"
+              placeholder="Password"
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control
+              onBlur={handleConfirmPassword}
+              type="password"
+              placeholder="Confirm Password"
+              required
+            />
+            <p className="text-danger">{error}</p>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check
+              onChange={loginpage}
+              type="checkbox"
+              label="Already have an account?"
+            />
+          </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Sign Up
-        </Button>
-      </Form>
+          <Button className="btn btn-info" variant="primary" type="submit">
+            Sign Up
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 };
