@@ -35,6 +35,7 @@ const SignUp = () => {
       setError("Password should contain six or more characters ");
     }
     createUserWithEmailAndPassword(userEmail, userPassword);
+    navigate(Form, { replace: true });
   };
 
   if (user) {

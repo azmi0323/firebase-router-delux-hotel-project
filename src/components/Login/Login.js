@@ -24,6 +24,7 @@ const Login = () => {
     const password = passwordRef.current.value;
 
     signInWithEmailAndPassword(email,password)
+    navigate(from, { replace: true });
   };
   const [signInWithGoogle] = useSignInWithGoogle(auth);
   const location = useLocation();
